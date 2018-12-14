@@ -1,0 +1,15 @@
+# Add snap to PATH
+export PATH="$PATH:/snap/bin"
+
+# Change npm global directory
+export PATH=~/.npm-global/bin:$PATH
+
+# Add composer global bin directory
+if [ -d ~/.config/composer/vendor/bin ]; then
+	export PATH=~/.config/composer/vendor/bin:$PATH
+fi
+
+# Bind keys for PHPStorm embeded terminal
+bindkey "\e\eOD" backward-word 
+bindkey "\e\eOC" forward-word
+
