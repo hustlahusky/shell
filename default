@@ -1,3 +1,6 @@
+# Current dir
+currentDir="$(dirname "$0")"
+
 # Add snap to PATH
 export PATH="$PATH:/snap/bin"
 
@@ -12,4 +15,10 @@ fi
 # Bind keys for PHPStorm embeded terminal
 bindkey "\e\eOD" backward-word 
 bindkey "\e\eOC" forward-word
+
+# Skip snap weird errors with translations
+# https://bugs.launchpad.net/ubuntu/+source/snapd/+bug/1808213 
+export LANG=C
+
+source "$currentDir/aliases/npm"
 

@@ -1,0 +1,4 @@
+# Enable npq wrapper around npm
+#if which npq-hero > /dev/null; then
+#  alias npm='npq-hero'
+#fi
