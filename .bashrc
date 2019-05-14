@@ -173,3 +173,5 @@ esac
 # Add snap to PATH
 export PATH="$PATH:/snap/bin"
 
+# NPX auto fallback
+source <(npx --shell-auto-fallback zsh)

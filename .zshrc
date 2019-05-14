@@ -1,5 +1,7 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+source ~/shell/default
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/const/.oh-my-zsh"
@@ -109,4 +111,5 @@ source $ZSH/oh-my-zsh.sh
 
 export DEFAULT_USER="$(whoami)"
 
-source ~/shell/default
+# NPX auto fallback
+source <(npx --shell-auto-fallback zsh)

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 sudo apt update && sudo apt upgrade
 
 # Install base cli
@@ -8,23 +10,15 @@ sudo apt install -y \
 	htop \
 	zsh
 
-# Install snaps
-sudo snap install node --channel=10/stable --classic
-sudo snap install docker
-sudo snap connect docker:home
-sudo snap install sublime-text --classic
-sudo snap install vscode --classic
-sudo snap install phpstorm --classic
-sudo snap install gimp
-sudo snap install gravit-designer
-sudo snap install telegram-desktop --beta
-sudo snap install skype --classic
-sudo snap install obs-studio
+# Install Node js
+curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+sudo apt-get install -y nodejs
 
 # Install npm packages
 mkdir ~/.npm-global
 npm config set prefix '~/.npm-global'
 npm config set scripts-prepend-node-path true
+npm config set unsafe-perm true
 npm install -g \
 	browser-sync \
 	meta \
@@ -56,6 +50,16 @@ sudo mv composer.phar /usr/local/bin/composer
 
 composer global require hirak/prestissimo
 
-# TODO: install oh-my-zsh
-# TODO: install some fonts
-# sudo apt install -y fonts-firacode fonts-powerline
+# Expose aliases to windows
+WSL_ALIASES=(
+	'ssh'
+	'node'
+	'npm'
+	'npx'
+	'php'
+	'composer'
+)
+
+for wslAlias in "${WSL_ALIASES[@]}"; do
+	~/.wsl-alias/bin/wsl-alias add $wslAlias $wslAlias
+done
