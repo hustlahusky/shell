@@ -44,7 +44,8 @@ sudo apt install -y \
 	php-gd \
 	php-mysql \
 	php-mbstring \
-	php-xml
+	php-xml \
+	php-xdebug
 
 EXPECTED_COMPOSER_SIGNATURE=$(wget -q -O - https://composer.github.io/installer.sig) && \
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \

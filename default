@@ -11,8 +11,8 @@ if [ -d ~/.npm-global/bin ]; then
 fi
 
 # Add composer global bin directory
-if [ -d ~/.config/composer/vendor/bin ]; then
-	export PATH=~/.config/composer/vendor/bin:$PATH
+if [ -d ~/.composer/vendor/bin ]; then
+	export PATH=~/.composer/vendor/bin:$PATH
 fi
 
 # Bind keys for PHPStorm embeded terminal
