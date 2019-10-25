@@ -8,7 +8,13 @@ sudo apt update && sudo apt upgrade
 sudo apt install -y \
 	git \
 	htop \
-	zsh
+	zsh \
+	python3-dev \
+	python3-pip \
+	python3-setuptools
+
+# Install thefuck
+sudo pip3 install thefuck
 
 # Install Node js
 curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -

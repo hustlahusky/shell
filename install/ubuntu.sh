@@ -6,7 +6,13 @@ sudo apt update && sudo apt upgrade
 sudo apt install -y \
 	git \
 	htop \
-	zsh
+	zsh \
+	python3-dev \
+	python3-pip \
+	python3-setuptools
+
+# Install thefuck
+sudo pip3 install thefuck
 
 # Install snaps
 sudo snap install node --channel=10/stable --classic
