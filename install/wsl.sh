@@ -2,6 +2,8 @@
 
 set -e
 
+# Add repositories and update system
+sudo add-apt-repository ppa:ondrej/php
 sudo apt update && sudo apt upgrade
 
 # Install base cli
@@ -34,7 +36,7 @@ npm install -g \
 
 # Install php and composer
 sudo apt install -y \
-	php7.2-cli \
+	php7.4-cli \
 	php-pear \
 	php-fpm \
 	php-dev \
