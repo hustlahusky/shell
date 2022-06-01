@@ -1,32 +1,43 @@
 # Current dir
 # currentDir="$(dirname "$0")"
-currentDir=~/shell
+#currentDir=~/shell
 
 # Add snap to PATH
-export PATH="$PATH:/snap/bin"
+if [ -d /snap/bin ]; then
+  export PATH="$PATH:/snap/bin"
+fi
 
 # Change npm global directory
 if [ -d ~/.npm-global/bin ]; then
-	export PATH=~/.npm-global/bin:$PATH
+	export PATH=$PATH:~/.npm-global/bin
 fi
 
 # Add composer global bin directory
 if [ -d ~/.composer/vendor/bin ]; then
-	export PATH=~/.composer/vendor/bin:$PATH
+	export PATH=$PATH:~/.composer/vendor/bin
 fi
 
+# Golang
+if [ -d /usr/local/go/bin ]; then
+  export PATH=$PATH:/usr/local/go/bin
+fi
+
+export GOPATH=$HOME/development
+
 # Bind keys for PHPStorm embeded terminal
-#bindkey "\e\eOD" backward-word
-#bindkey "\e\eOC" forward-word
+if [[ -n $ZSH ]]; then
+  bindkey "\e\eOD" backward-word
+  bindkey "\e\eOC" forward-word
+fi
 
 # Skip snap weird errors with translations
 # https://bugs.launchpad.net/ubuntu/+source/snapd/+bug/1808213
 # export LANG=C
 
-source "$currentDir/aliases/npm"
+#source "$currentDir/aliases/npm"
 
 # WSL
-export DOCKER_HOST=tcp://localhost:2375
+# export DOCKER_HOST=tcp://localhost:2375
 
 # The fuck https://github.com/nvbn/thefuck
 if which thefuck > /dev/null; then
